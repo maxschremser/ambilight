@@ -66,7 +66,7 @@ apiTraits.getChannelsId = Trait.compose(
 );
 
 module.exports = {
-      "getChannels"     : Trait.create(Object.prototype, apiTraits.getChannellists)
+      "getChannels"     : Trait.create(Object.prototype, apiTraits.getChannels)
     , "getChannelsCurrent"    : Trait.create(Object.prototype, apiTraits.getChannelsCurrent)
     , "postChannelsCurrent"    : Trait.create(Object.prototype, apiTraits.postChannelsCurrent)
     , "getChannelsId"    : Trait.create(Object.prototype, apiTraits.getChannelsId)
