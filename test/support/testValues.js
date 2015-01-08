@@ -1,5 +1,5 @@
 module.exports = {
-  host         : "192.168.0.13:1925",
+  host         : "192.168.0.11",
   leftCount  : 5,
   topCount  : 10,
   rightCount  : 5,

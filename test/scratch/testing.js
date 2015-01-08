@@ -12,7 +12,7 @@ var displayTv = function(tv) {
 ambilight.().then(displayTv).done();
 
 // Using a callback
-ambilight.locateBridges(function(err, result) {
+ambilight.ambilights(function(err, result) {
     if (err) throw err;
     displayTv(result);
 });

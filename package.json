@@ -1,6 +1,6 @@
 {
   "name": "ambilight",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "contributors": [
     {
       "name": "Maximilian Schremser",
@@ -14,7 +14,7 @@
   "private": false,
   "main": "index.js",
   "script": {
-    "test": "make test"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
