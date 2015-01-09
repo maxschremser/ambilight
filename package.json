@@ -1,6 +1,6 @@
 {
   "name": "ambilight",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "An API library for Node.js that interacts with a Philips Ambilight TV.",
   "homepage": "https://github.com/maxschremser/ambilight",
   "readmeFilename": "README.md",
