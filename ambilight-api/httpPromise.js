@@ -2,7 +2,7 @@
 
 var url = require("url")
     , util = require("util")
-    , requestUtil = require("node-hue-api/node_modules/request-util")
+    , requestUtil = require("request-util")
     , errors = require("node-hue-api/hue-api/errors.js")
     ;
 

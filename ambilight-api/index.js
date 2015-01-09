@@ -20,19 +20,269 @@ function AmbilightApi(host, timeout) {
 
 module.exports = AmbilightApi;
 
+///////////////////////////////////////////////////////////////////////////////////////////
+// Ambilight Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+
 /**
  * Obtains the topology of the individual lights that are attached to the Philips Ambilight TV.
  *
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.ambilights = function (cb) {
+AmbilightApi.prototype.getTopology = function (cb) {
   var options = _defaultOptions(this),
       promise;
 
   promise = http.invoke(ambilightsApi.getTopology, options);
   return utils.promiseOrCallback(promise, cb);
 };
+
+/**
+ * Obtains the cached lights that are attached to the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getCached = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.getCached, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Sets the cache on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.postCached = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.postCached, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Obtains the mode of the Philips Ambilight TV.
+ * intenral, manual or expert
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getMode = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.getMode, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Sets the mode on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.postMode = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.postMode, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Obtains the processed values of the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getProcessed = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.getProcessed, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Sets the mode on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getMeasured = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(ambilightsApi.getMeasured, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Audio Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Obtains the audio volume from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getAudioVolume = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(audioApi.getAudioVolume, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Sets the audio volume on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.postAudioVolume = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(audioApi.postAudioVolume, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Channellist Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Obtains the channellist from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getChannellists = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channellistsApi.getChannellists, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Obtains a specific channel from a channellist from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getChannellistsId = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channellistsApi.getChannellistsId, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Channel Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Obtains a list of channels from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getChannels = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channelsApi.getChannels, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Obtains detailed information of the current channel from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getChannelsCurrent = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channelsApi.getChannelsCurrent, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Sets the current channel on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.postChannelsCurrent = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channelsApi.postChannelsCurrent, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+/**
+ * Obtains detailed information of the given channel from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getChannelsId = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(channelsApi.getChannelsId, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Input Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * Sets the character on the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.postInputKey = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(inputApi.postInputKey, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// Source Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Obtains the currently selected Source from the Philips Ambilight TV.
+ *
+ * @param cb An optional callback function to use if you do not want a promise returned.
+ * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
+ */
+AmbilightApi.prototype.getSources = function (cb) {
+  var options = _defaultOptions(this),
+      promise;
+
+  promise = http.invoke(sourcesApi.getSources, options);
+  return utils.promiseOrCallback(promise, cb);
+};
+
+///////////////////////////////////////////////////////////////////////////////////////////
+// System Methods
+///////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 

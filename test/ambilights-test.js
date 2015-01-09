@@ -16,7 +16,7 @@ describe("Ambilight API", function () {
         function checkResults(results) {
           _validateAmbilightsResult(results, done);
         }
-        ambi.ambilights().then(checkResults).done();
+        ambi.getTopology().then(checkResults).done();
       });
     });
 
@@ -24,7 +24,7 @@ describe("Ambilight API", function () {
 
       it("should find some lights", function (done) {
         var ambi = new AmbilightApi(testValues.host);
-        ambi.ambilights(function (err, results) {
+        ambi.getTopology(function (err, results) {
           if (err) {
             throw err;
           }
