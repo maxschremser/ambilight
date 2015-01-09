@@ -47,7 +47,7 @@ apiTraits.postCached = Trait.compose(
         "1.0",
         "Whitelist"
     ),
-    tDescription("Gets a list of all lights with associated colors that have been found on the TV."),
+    tDescription("Sets the value of the colors on the TV."),
     tPostProcessing(utils.wasSuccessful)
 );
 
@@ -57,7 +57,7 @@ apiTraits.getMode = Trait.compose(
         "1.0",
         "Whitelist"
     ),
-    tDescription("Gets a list of all lights with associated colors that have been found on the TV.")
+    tDescription("Gets a list of all modes for ambilight that have been found on the TV.")
 );
 
 // POST, BODY: {"current": "manual" or "internal" or "expert"
