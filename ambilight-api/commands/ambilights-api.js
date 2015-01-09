@@ -81,7 +81,7 @@ apiTraits.getProcessed = Trait.compose(
 );
 
 apiTraits.getMeasured = Trait.compose(
-    tApiMethod("/1/ambilight/measures",
+    tApiMethod("/1/ambilight/measured",
         "GET",
         "1.0",
         "Whitelist"

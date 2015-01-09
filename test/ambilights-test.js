@@ -14,7 +14,7 @@ describe("Ambilight API", function () {
 
       it("should find some", function (done) {
         function checkResults(results) {
-          _validateAmbilightsResult(results, done);
+          _validateTopologyResult(results, done);
         }
 
         var ambi = new AmbilightApi(testValues.host);
@@ -30,13 +30,31 @@ describe("Ambilight API", function () {
           if (err) {
             throw err;
           }
-          _validateAmbilightsResult(results, done);
+          _validateTopologyResult(results, done);
         });
       });
     });
+
+    function _validateTopologyResult(results, cb) {
+      expect(results).to.exist;
+      expect(results.left).to.equal(testValues.leftCount);
+      expect(results.right).to.equal(testValues.rightCount);
+      expect(results.top).to.equal(testValues.topCount);
+      expect(results.bottom).to.equal(testValues.bottomCount);
+      expect(results.layers).to.equal(testValues.layersCount);
+
+      //TODO do this for all the lights
+      _validateTopology(results);
+
+      cb();
+    }
+
+    function _validateTopology(obj) {
+      expect(obj).to.have.keys("layers", "left", "top", "right", "bottom");
+    }
   });
 
-  // test: getCached
+  // test: getMode
   describe("#mode", function () {
 
     describe("#promise", function() {
@@ -63,44 +81,82 @@ describe("Ambilight API", function () {
         });
       });
     });
+
+    function _validateModeResult(results, cb) {
+      expect(results).to.exist;
+      expect(results).to.have.property('current');
+      expect(results.current).to.be.a('string');
+
+      cb();
+    }
+  });
+  
+  // test: getProcessed
+  describe("#processed", function () {
+
+    describe("#promise", function() {
+
+      it("should find the processed values", function (done) {
+        function checkProcessed(results) {
+          _validateLayeredResult(results, done);
+        }
+
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getProcessed().then(checkProcessed).done();
+      });
+    });
+
+    describe("#callback", function () {
+
+      it("should find the values processed", function (done) {
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getProcessed(function (err, results) {
+          if (err) {
+            throw err;
+          }
+          _validateLayeredResult(results, done);
+        });
+      });
+    });
+  });
+  
+  // test: getMeasured
+  describe("#measured", function () {
+
+    describe("#promise", function() {
+
+      it("should find the measured lights", function (done) {
+        function checkMeasured(results) {
+          _validateLayeredResult(results, done);
+        }
+
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getMeasured().then(checkMeasured).done();
+      });
+    });
+
+    describe("#callback", function () {
+
+      it("should find the lights measured", function (done) {
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getMeasured(function (err, results) {
+          if (err) {
+            throw err;
+          }
+          _validateLayeredResult(results, done);
+        });
+      });
+    });
   });
 });
 
-function _validateAmbilightsResult(results, cb) {
+function _validateLayeredResult(results, cb) {
   expect(results).to.exist;
-  expect(results.left).to.equal(testValues.leftCount);
-  expect(results.right).to.equal(testValues.rightCount);
-  expect(results.top).to.equal(testValues.topCount);
-  expect(results.bottom).to.equal(testValues.bottomCount);
-  expect(results.layers).to.equal(testValues.layersCount);
-
-  //TODO do this for all the lights
-  _validateAmbilight(results);
-
-  cb();
-}
-
-function _validateAmbilight(obj) {
-  expect(obj).to.have.keys("layers", "left", "top", "right", "bottom");
-}
-
-function _validateModeResult(results, cb) {
-  expect(results).to.exist;
-  expect(results.current).to.exist;
-  cb();
-}
-
-function _validateCachedResult(results, cb) {
-  expect(results).to.exist;
-  console.log("left:" + JSON.stringify(results.left));
-  expect(results.left).to.be.an('object');
-  expect(results.top).to.be.an('object');
-  expect(results.right).to.be.an('object');
-  expect(results.bottom).to.be.an('object');
-  expect(results.layers).to.be.an('object');
-
-  //TODO do this for all the lights
-  _validateAmbilight(results);
+  expect(results.layer1).to.be.an('object');
+  expect(results.layer1.left).to.be.an('object');
+  expect(results.layer1.top).to.be.an('object');
+  expect(results.layer1.right).to.be.an('object');
+  expect(results.layer1.bottom).to.be.an('object');
 
   cb();
 }
