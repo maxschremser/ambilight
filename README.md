@@ -1,8 +1,13 @@
+<!-- 
+README has been edited on dillinger.io
+-->
 # ambilight
 An API library for Node.js that interacts with a Philips Ambilight TV.
 
-This API provides all documented features and a set of useful functions to control the tv remotely. This API abstracts away the Philips Ambilight REST API. 
-This project is based on the node-hue-api@0.2.6 project by Peter Murray. As in the HUE API, the Ambilight API supports for each function a callback and if omitted a promise will be returned for use in chaining.
+This API provides all documented features and a set of useful functions to control the tv remotely. 
+This API abstracts away the Philips Ambilight REST API. 
+This project is based on the node-hue-api@0.2.6 project by Peter Murray. As in the HUE API, the Ambilight API supports 
+for each function a callback and if omitted a promise will be returned for use in chaining.
 
 ## Change Log
 For a list of changes, please refer to the changelog. <a href="https://github.com/maxschremser/ambilight/commits/master">ChangeLog</a>
@@ -13,7 +18,9 @@ $ npm install ambilight
 ```
 
 ## Philips Ambilight Resources
-There are plenty of resources about ambilight on the internet, but the best technical description is probably your own tv (<a href="http://&lt;ip-address&gt;:1925/1/doc/API.html">http://&lt;ip-address&gt;:1925/1/doc/API.html</a>). You may need to enable jointSPACE by entering the following digit sequence while wathcing TV. 
+There are plenty of resources about ambilight on the internet, but the best technical description is probably your own tv 
+(<a href="http://&lt;ip-address&gt;:1925/1/doc/API.html">http://&lt;ip-address&gt;:1925/1/doc/API.html</a>). 
+You may need to enable jointSPACE by entering the following digit sequence while watching TV. 
 ```
 5646877223
 ```
