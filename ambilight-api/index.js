@@ -68,7 +68,7 @@ AmbilightApi.prototype.postCached = function (cb) {
 
 /**
  * Obtains the mode of the Philips Ambilight TV.
- * intenral, manual or expert
+ * internal, manual or expert
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */

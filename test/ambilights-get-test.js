@@ -4,7 +4,7 @@ var expect = require("chai").expect,
     AmbilightApi = require("../ambilight-api"),
     testValues = require("./support/testValues.js");
 
-
+// test ambilight-api
 describe("Ambilight API", function () {
 
   // test: getTopology
@@ -90,7 +90,7 @@ describe("Ambilight API", function () {
       cb();
     }
   });
-  
+
   // test: getProcessed
   describe("#processed", function () {
 

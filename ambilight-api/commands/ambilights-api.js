@@ -48,7 +48,13 @@ apiTraits.postCached = Trait.compose(
         "Whitelist"
     ),
     tDescription("Sets the value of the colors on the TV."),
-    tPostProcessing(utils.wasSuccessful)
+    tBodyArguments(
+        "application/json",
+        [
+            {"name": "muted", "type": "boolean", "optional": true},
+            {"name": "current", "type": "int", "optional": true}
+        ]
+    )
 );
 
 apiTraits.getMode = Trait.compose(
@@ -68,6 +74,12 @@ apiTraits.postMode= Trait.compose(
         "Whitelist"
     ),
     tDescription("Gets a list of all lights with associated colors that have been found on the TV."),
+    tBodyArguments(
+        "application/json",
+        [
+            {"name": "current", "type": "string", "optional": true}
+        ]
+    ),
     tPostProcessing(utils.wasSuccessful)
 );
 
