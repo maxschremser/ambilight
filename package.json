@@ -1,6 +1,6 @@
 {
   "name": "ambilight",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "contributors": [
     {
       "name": "Maximilian Schremser",
@@ -26,7 +26,8 @@
   "dependencies": {
     "q": "~1.0.0",
     "traits": "~0.4.0",
-    "node-hue-api": "~0.2.6"
+    "node-hue-api": "~0.2.6",
+    "request-util": "~0.0.1"
   },
   "devDependencies": {
     "mocha": "~1.20.1",
