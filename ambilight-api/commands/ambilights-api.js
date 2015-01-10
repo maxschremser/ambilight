@@ -41,6 +41,11 @@ apiTraits.getCached = Trait.compose(
     tDescription("Gets a list of all lights with associated colors that have been found on the TV.")
 );
 
+/**
+ * set all colours on all layers to the same colour: { "r": 100, "g": 210, "b": 30 }
+ * set all colours on layer 2 to the same colour: { "layer2": { "r": 100, "g": 210, "b": 30 } }
+ * set all pixels on the left and right on layer 1 to the same colour, other pixels keep their colour : { "layer1": { "left" : { "r": 100, "g": 210, "b": 30 }, "right" : { "r": 100, "g": 210, "b": 30 } } }
+ */
 apiTraits.postCached = Trait.compose(
     tApiMethod("/1/ambilight/cached",
         "POST",
@@ -51,8 +56,14 @@ apiTraits.postCached = Trait.compose(
     tBodyArguments(
         "application/json",
         [
-            {"name": "muted", "type": "boolean", "optional": true},
-            {"name": "current", "type": "int", "optional": true}
+            {"name": "layer1", "type": "object", "optional": true},
+            {"name": "left", "type": "object", "optional": true},
+            {"name": "top", "type": "object", "optional": true},
+            {"name": "right", "type": "object", "optional": true},
+            {"name": "bottom", "type": "object", "optional": true},
+            {"name": "r", "type": "object", "optional": true},
+            {"name": "g", "type": "object", "optional": true},
+            {"name": "b", "type": "object", "optional": true}
         ]
     )
 );
@@ -77,7 +88,7 @@ apiTraits.postMode= Trait.compose(
     tBodyArguments(
         "application/json",
         [
-            {"name": "current", "type": "string", "optional": true}
+            {"name": "current", "type": "string", "optional": false}
         ]
     ),
     tPostProcessing(utils.wasSuccessful)

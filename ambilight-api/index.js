@@ -55,13 +55,15 @@ AmbilightApi.prototype.getCached = function (cb) {
 /**
  * Sets the cache on the Philips Ambilight TV.
  *
+ * @param cache The Cache of the pixels @see ambilight-api.js:45
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postCached = function (cb) {
+AmbilightApi.prototype.postCached = function (cache, cb) {
   var options = _defaultOptions(this),
       promise;
 
+  options.values = cache;
   promise = http.invoke(ambilightsApi.postCached, options);
   return utils.promiseOrCallback(promise, cb);
 };
@@ -83,13 +85,15 @@ AmbilightApi.prototype.getMode = function (cb) {
 /**
  * Sets the mode on the Philips Ambilight TV.
  *
+ * @param mode The Mode of the ambilight @see ambilight-api.js:80
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postMode = function (cb) {
+AmbilightApi.prototype.postMode = function (mode, cb) {
   var options = _defaultOptions(this),
       promise;
-
+  mode = mode || "internal";
+  options.values = { "current" : mode};
   promise = http.invoke(ambilightsApi.postMode, options);
   return utils.promiseOrCallback(promise, cb);
 };
@@ -142,13 +146,16 @@ AmbilightApi.prototype.getAudioVolume = function (cb) {
 /**
  * Sets the audio volume on the Philips Ambilight TV.
  *
+ * @param volume The Volume of the audio @see ambilight-api.js:45
+ * @param muted A Boolean whether the sound shall be muted.
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postAudioVolume = function (cb) {
+AmbilightApi.prototype.postAudioVolume = function (volume, muted, cb) {
   var options = _defaultOptions(this),
       promise;
 
+  options.values = { "volume": volume, "muted": muted};
   promise = http.invoke(audioApi.postAudioVolume, options);
   return utils.promiseOrCallback(promise, cb);
 };
@@ -223,13 +230,15 @@ AmbilightApi.prototype.getChannelsCurrent = function (cb) {
 /**
  * Sets the current channel on the Philips Ambilight TV.
  *
+ * @param id The Id of the Channel as an integer, this value will be parsed into an integer value so can be a {String} or
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postChannelsCurrent = function (cb) {
+AmbilightApi.prototype.postChannelsCurrent = function (id, cb) {
   var options = _defaultOptions(this),
       promise;
 
+  options.values = {"id": id};
   promise = http.invoke(channelsApi.postChannelsCurrent, options);
   return utils.promiseOrCallback(promise, cb);
 };
@@ -237,6 +246,8 @@ AmbilightApi.prototype.postChannelsCurrent = function (cb) {
 /**
  * Obtains detailed information of the given channel from the Philips Ambilight TV.
  *
+ * @param id The Id of the Channel as an integer, this value will be parsed into an integer value so can be a {String} or
+ * {Number} value.
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
