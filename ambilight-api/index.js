@@ -1,7 +1,7 @@
 "use strict";
 
 var Q = require("q")
-    , http = require("./httpPromise")
+    , http = require("node-hue-api/hue-api/httpPromise")
     , utils = require('node-hue-api/hue-api/utils')
     , ambilightsApi = require('./commands/ambilights-api')
     , audioApi = require('./commands/audio-api')

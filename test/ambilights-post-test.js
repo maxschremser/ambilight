@@ -6,7 +6,7 @@ var expect = require("chai").expect,
 
 function _validateModeResult(results, cb) {
   expect(results).to.exist;
-  expect(results).to.be.a('boolean');
+  expect(results).to.equal('<html><head><title>Ok</title></head><body>Ok</body></html>');
 
   cb();
 }

@@ -14,7 +14,7 @@ function _validateAudioResult(results, cb) {
 // test audio-api
 describe("Audio API", function () {
 
-  // test: postMode
+  // test: postAudioVolume
   describe("#post-audio/volume", function () {
 
     describe("#promise", function () {
