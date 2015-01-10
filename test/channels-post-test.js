@@ -23,7 +23,6 @@ describe("Channels API", function () {
 
       it("should post channels current", function (done) {
         function checkResults(results) {
-          console.log(results);
           _validateChannelsResult(results, done);
         }
 
