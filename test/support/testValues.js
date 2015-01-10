@@ -10,6 +10,5 @@ module.exports = {
   testLightId: 6,
   hueLightId: 6,
   luxLightId: 15,
-  livingColorLightId: 1,
-  cachedLeft : {}
+  livingColorLightId: 1
 };

@@ -54,6 +54,36 @@ describe("Ambilight API", function () {
     }
   });
 
+  // test: getCached
+  describe("#mode", function () {
+
+    describe("#promise", function() {
+
+      it("should find the cached values", function (done) {
+        function checkMode(results) {
+          _validateLayeredResult(results, done);
+        }
+
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getCached().then(checkMode).done();
+      });
+    });
+
+    describe("#callback", function () {
+
+      it("should find the values cached", function (done) {
+        var ambi = new AmbilightApi(testValues.host);
+        ambi.getCached(function (err, results) {
+          if (err) {
+            throw err;
+          }
+          _validateLayeredResult(results, done);
+        });
+      });
+    });
+
+  });
+
   // test: getMode
   describe("#mode", function () {
 

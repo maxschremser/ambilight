@@ -4,11 +4,11 @@ var expect = require("chai").expect,
     AmbilightApi = require("../ambilight-api"),
     testValues = require("./support/testValues.js");
 
-// test ambilight-api
-describe("Ambilight Audio API", function () {
+// test audio-api
+describe("Audio API", function () {
 
-  // test: get Audio
-  describe("#audio", function () {
+  // test: getAudioVolume
+  describe("#audio/volume", function () {
 
     describe("#promise", function() {
 
@@ -24,7 +24,7 @@ describe("Ambilight Audio API", function () {
 
     describe("#callback", function () {
 
-      it("should find some audio", function (done) {
+      it("should find audio some", function (done) {
         var ambi = new AmbilightApi(testValues.host);
         ambi.getAudioVolume(function (err, results) {
           if (err) {
@@ -38,7 +38,6 @@ describe("Ambilight Audio API", function () {
     function _validateAudioResult(results, cb) {
       expect(results).to.exist;
       expect(results.muted).to.be.a('boolean');
-      //expect(results.current).to.be.gt(0);
       expect(results.min).to.equal(0);
       expect(results.max).to.equal(60);
 

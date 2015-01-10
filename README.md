@@ -1,6 +1,7 @@
 <!-- 
 README has been edited on dillinger.io
 -->
+
 # ambilight
 An API library for Node.js that interacts with a Philips Ambilight TV.
 
@@ -59,4 +60,9 @@ api.getTopology(function (err, result) {
     showResult(result);
 });
 
+```
+
+The resulting output looks like this:
+```js
+{"layers":1,"left":5,"top":10,"right":5,"bottom":0}
 ```
