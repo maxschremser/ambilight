@@ -266,13 +266,15 @@ AmbilightApi.prototype.getChannelsId = function (id, cb) {
 /**
  * Sets the character on the Philips Ambilight TV.
  *
+ * @param key The Key of the Inpupt
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postInputKey = function (cb) {
+AmbilightApi.prototype.postInputKey = function (key, cb) {
   var options = _defaultOptions(this),
       promise;
 
+  options.values = { "key": key };
   promise = http.invoke(inputApi.postInputKey, options);
   return utils.promiseOrCallback(promise, cb);
 };
@@ -311,14 +313,16 @@ AmbilightApi.prototype.getSourcesCurrent = function (cb) {
 /**
  * Obtains the currently selected Source from the Philips Ambilight TV.
  *
+ * @param id The Id of the Source
  * @param cb An optional callback function to use if you do not want a promise returned.
  * @return A promise that will be provided with the lights object, or {null} if a callback function was provided.
  */
-AmbilightApi.prototype.postSourcesCurrent = function (cb) {
+AmbilightApi.prototype.postSourcesCurrent = function (id, cb) {
   var options = _defaultOptions(this),
       promise;
 
-  promise = http.invoke(sourcesApi.getSources, options);
+  options.values = { "id" : id };
+  promise = http.invoke(sourcesApi.postSourcesCurrent, options);
   return utils.promiseOrCallback(promise, cb);
 };
 

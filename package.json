@@ -21,7 +21,7 @@
   ],
   "private": false,
   "main": "index.js",
-  "script": {
+  "scripts": {
     "test": "mocha"
   },
   "repository": {
@@ -34,12 +34,15 @@
   "dependencies": {
     "q": "~1.0.0",
     "traits": "~0.4.0",
-    "node-hue-api": "~0.2.6",
+    "node-hue-api": "~0.2.7",
     "request-util": "~0.0.1"
   },
   "devDependencies": {
     "mocha": "~1.20.1",
     "chai": "~1.9.1"
+  },
+  "optionalDependencies": {
+    "semver": "~4.2.0"
   },
   "keywords": [
     "philips",

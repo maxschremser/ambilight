@@ -17,10 +17,6 @@ var Trait = require("traits").Trait,
     tApiMethod = require("./traits/tApiMethod"),
     tDescription = require("./traits/tDescription"),
     tBodyArguments = require("./traits/tBodyArguments"),
-    tLightStateBody = require("./traits/tLightStateBody"),
-    tPostProcessing = require("./traits/tPostProcessing"),
-    ApiError = require("node-hue-api/hue-api/errors").ApiError,
-    utils = require("node-hue-api/hue-api/utils"),
     apiTraits = {};
 
 apiTraits.postInputKey = Trait.compose(
