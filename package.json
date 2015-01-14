@@ -32,17 +32,19 @@
     "url": "https://github.com/maxschremser/ambilight/issues"
   },
   "dependencies": {
-    "q": "~1.0.0",
-    "traits": "~0.4.0",
+    "colors": "^1.0.3",
     "node-hue-api": "~0.2.7",
-    "request-util": "~0.0.1"
+    "prettyjson": "^1.0.0",
+    "q": "~1.0.0",
+    "request-util": "~0.0.1",
+    "traits": "~0.4.0"
   },
   "devDependencies": {
-    "mocha": "~1.20.1",
-    "chai": "~1.9.1"
+    "mocha": "~1.20.1"
   },
   "optionalDependencies": {
-    "semver": "~4.2.0"
+    "semver": "~4.2.0",
+    "chai": "~1.9.1"
   },
   "keywords": [
     "philips",
