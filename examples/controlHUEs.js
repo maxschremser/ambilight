@@ -8,6 +8,7 @@ var ambilight = require('../'),
     bLightsOn = false,
     _TIMEOUT = 500,
     _GOTO_BED = 50000,
+    _tvOn = false,
     getMeasuredLight = function (obj, light) {
       for (var o in obj) {
         if (o == light) {
@@ -18,6 +19,7 @@ var ambilight = require('../'),
     controlHUE = function (measured) {
       if (measured && expect(measured.layer1).to.be.an('object')) {
         // I have two HUE Lights (1 and 2)
+        _tvOn = true;
         var state1, state2;
         var states = hue_api.lightState;
 
@@ -74,14 +76,17 @@ setInterval(function () {
         // we got logged off, Ambilight is down, so the TV is down,
         // turn off hues in 50 seconds and go to bed,
         // forever will find when the TV is back on hueston
-        var states = hue_api.lightState;
-        hue.setLightState(1, states.create().transition(60).off());
-        hue.setLightState(2, states.create().transition(60).off());
-        setTimeout(function () {
-          hue.setLightState(1, states.create().off());
-          hue.setLightState(2, states.create().off());
-        }, _GOTO_BED);
-        console.log("HUEston has a problem.");
+        if (_tvOn) {
+          _tvOn = false;
+          var states = hue_api.lightState;
+          hue.setLightState(1, states.create().transition(60).off());
+          hue.setLightState(2, states.create().transition(60).off());
+          setTimeout(function () {
+            hue.setLightState(1, states.create().off());
+            hue.setLightState(2, states.create().off());
+          }, _GOTO_BED);
+          console.log("HUEston has landed. " + error != null ? JSON.stringify(error) : "");
+        }
       })
       .done();
 }, _TIMEOUT);
